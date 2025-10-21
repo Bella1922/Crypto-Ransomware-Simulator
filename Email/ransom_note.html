@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <title>Payment Required!</title>
+    </head>
+    <body>
+        <header>
+            <h1>Important Notice</h1>
+        </header>
+        <main>
+            <h2>File Access Denied</h2>
+            <p>Congratulations, your file has been encrypted. To regain access, you must pay a ransom of <strong>$300 worth of Bitcoin</strong>.</p>
+            <p>Contact us at: <strong>attacker@darkweb.com</strong></p>
+            <p>Time is of the essence! Failure to pay within 48 hours will result in permanent data loss.</p>
+            <form action="process_payment.php" method="POST">
+                <label for="amount">Enter Amount in Bitcoin:</label>
+                <input type="text" id="amount" name="amount" required>
+                <button type="submit">Pay Now</button>
+            </form>
+        </main>
+    </body>
+</html>
