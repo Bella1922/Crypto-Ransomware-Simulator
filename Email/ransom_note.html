@@ -5,6 +5,28 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="styles.css">
         <title>Payment Required!</title>
+        <script>
+            function updateTimer() {
+                const timerElement = document.getElementById('timer');
+                let timeRemaining = 259200; // 72 hours in seconds
+
+                const interval = setInterval(() => {
+                    const hours = Math.floor(timeRemaining / 3600);
+                    const minutes = Math.floor((timeRemaining % 3600) / 60);
+                    const seconds = timeRemaining % 60;
+
+                    timerElement.innerHTML = "Time Remaining: ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}";
+
+                    if (timeRemaining <= 0) {
+                        clearInterval(interval);
+                        timerElement.innerHTML = "Timer ended!";
+                    }
+                    timeRemaining--;
+                }, 1000);
+            }
+
+            window.onload = updateTimer;
+        </script>
     </head>
     <body>
         <header>

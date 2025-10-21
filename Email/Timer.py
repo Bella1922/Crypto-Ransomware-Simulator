@@ -1,5 +1,6 @@
 import time
 import os
+import threading
 
 def countdown_timer(hours, minutes, seconds):
     total_seconds = hours * 3600 + minutes * 60 + seconds
@@ -18,5 +19,6 @@ def countdown_timer(hours, minutes, seconds):
     print(f"Lasted for {hours * 3600 + minutes * 60 + seconds} seconds")
     print("***************")
 
-# Start countdown from 72 hours
-countdown_timer(72, 0, 0)
+# Start countdown from 72 hours in a separate thread
+timer_thread = threading.Thread(target=countdown_timer, args=(72, 0, 0))
+timer_thread.start()
