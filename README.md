@@ -1,1 +1,1 @@
-# Ransomware-Simulator-in-Python
+# Ransomware-Simulator
