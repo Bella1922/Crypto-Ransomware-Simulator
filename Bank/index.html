@@ -3,17 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
     <title>Capital One - Bank Statement</title>
+    <link rel="stylesheet" href="styles.css">
+    <!--<link rel="icon" type="image/png" href="images/capitalone_logo.png">-->
 </head>
 <body>
     <header>
-        <h1>Capital One</h1>
+        <nav class="navbar">
+            <div class="logo-container">
+                <img src="images/capitalone_logo.png" alt="Capital One Logo" class="logo-img">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Accounts</a></li>
+                <li><a href="#">Transactions</a></li>
+                <li><a href="#">Statements</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Sign Out</a></li>
+            </ul>
+        </nav>
     </header>
+
     <main>
-        <h2>Your Bank Statement</h2>
+        <section class="welcome-section">
+            <h2>Welcome back, <span class="username">Bella</span></h2>
+            <p>Here's your most recent bank statement. Please download it.</p>
+        </section>
+
+        <section class="statement-card">
+            <div class="statement-header">
+                <h3>Checking Account **** 2931</h3>
+                <p>Statement Date: October 2025</p>
+            </div>
+            <div class="statement-body">
+                <p><strong>Current Balance:</strong> $5,482.27</p>
+                <p><strong>Available Credit:</strong> $2,300.00</p>
+                <p><strong>Last Transaction:</strong> Starbucks - $5.75</p>
+                <a href="download.py" class="download-btn" download="bank_statement.pdf">
+                    Download Bank Statement
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>$copy; 2025 Capital One. All rights reserved.</p>
+        <ul class="footer-links">
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Security</a></li>
+        </ul>
+    </footer>
+</body>
+</html>
+
+
+
+
+
+        <!--<h2>Your Bank Statement</h2>
         <p>Click the link below to download your latest bank statement:</p>
         <a href="download.py" download="bank_statement.pdf" download>Download Bank Statement</a>
     </main>
 </body>
-</html>
+</html>-->
