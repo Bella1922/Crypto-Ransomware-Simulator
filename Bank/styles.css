@@ -1,15 +1,184 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333
+/* Reset and general styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: boarder-box;
 }
+
+body {
+    font-family: "segoe UI", Arial, sans-serif;
+    background-color: #f8f9fb;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Navbar */
 header {
+    background-color: #004481;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0.1);
+}
+
+.navbar {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+}
+
+/* Logo section */
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 55px; /* Original 38px */
+    width: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
+}
+
+/* Navigation links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 28px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.nav-links a:hover {
+    background-color: rgb(255, 0, 0);
+}
+
+/* Main content */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.welcome-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.welcome-section h2 {
+    font-size: 1.8rem;
+    color: #004481;
+    margin-bottom: 10px;
+}
+
+.username {
+    color: #0070ba;
+}
+
+/* Statement card */
+.statement-card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px 30px;
+    max-width: 600px;
+    width: 100%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.statement-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+}
+
+.statement-header {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.statement-header h3 {
+    color: #004481;
+}
+
+.statement-body p {
+    margin: 10px 0;
+}
+
+.download-btn {
+    display: inline-block;
+    margin-top: 20px;
     background-color: #0070ba;
     color: white;
-    padding: 10px 0;
-    text-align: center;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
-main {
-    padding: 20px;
+
+.download-btn:hover {
+    background-color: #005c99;
+    transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+    background-color: #f1f3f6;
     text-align: center;
+    padding: 15px;
+    border-top: 1px solid #ddd;
+}
+
+footer p {
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #0070ba;
+    font-size: 0.9rem;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 700px) {
+    .nav-links {
+        display: none;
+    }
+
+    .statement-card {
+        padding: 20px;
+    }
+
+    .welcome-section h2 {
+        font-size: 1.5rem;
+    }
 }
