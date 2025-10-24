@@ -67,7 +67,7 @@ header {
     background-color: rgb(255, 0, 0);
 }
 
-/* Main content */
+/* Main Content */
 main {
     flex: 1;
     display: flex;

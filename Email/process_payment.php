@@ -1,8 +1,17 @@
 <?php
+
+// EDUCATIONAL DEMO: This file simulates the "backend" of a ransom payment.
+// In a real attack, this would involve cryptocurrency validation.
+// For this demo, it just acknowledges the "payment" to continue the simulation.
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $amount = htmlspecialchars($_POST['amount']);
-    // This is where the payment processing logic can be
-    // However, for educational demo purposes a successful payment will be completed
-    echo "Payment of " . $amount . " Bitcoin received. Your files will be decrypted shortly.";
+    // This is where the payment processing logic would be.
+    // However, for educational demo purposes a successful payment will be shown.
+    echo "<h1>Payment Simulation</h1>";
+    echo "<p><strong>EDUCATIONAL DEMO ONLY</strong></p>";
+    echo "<p>Payment of " . $amount . " Bitcoin supposedly received.</p>";
+    echo "<p>In a real attack, the attacker's server would now validate this transaction on the blockchain. If valid, they might send a decryption key. In many cases, attackers take the money and are never heard from again.</p>";
+    echo "<a href='ransom_note.html'>Go Back</a>";
 }
 ?>

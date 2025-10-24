@@ -37,20 +37,47 @@
         </style>
     </head>
     <body>
-        <header>
-            <h1>Important Notice</h1>
-        </header>
-        <main>
-            <h2>File Access Denied</h2>
-            <p>Congratulations, your file has been encrypted. To regain access, you must pay a ransom of <strong>$3,000 worth of Bitcoin</strong>.</p>
-            <p>Contact us at: <strong>attacker@darkweb.com</strong></p>
-            <p>Time is of the essence! Failure to pay within 72 hours will result in permanent data loss.</p>
-            <div id="timer"></div>
-            <form action="process_payment.php" method="POST">
-                <label for="amount">Enter Amount in Bitcoin:</label>
-                <input type="text" id="amount" name="amount" required>
-                <button type="submit">Pay Now</button>
-            </form>
-        </main>
+        <div class="email-client-container">
+            <nav class="sidebar">
+                <div class="sidebar-header">
+                    <h3>My Mail</h3>
+                </div>
+                <ul>
+                    <li class="active"><a>Inbox (1)</a></li>
+                    <li><a>Sent</a></li>
+                    <li><a>Drafts</a></li>
+                    <li><a>Spam</a></li>
+                    <li><a>Trash</a></li>
+                </ul>
+            </nav>
+
+            <main class="main-content">
+                <div class="disclaimer">
+                    <strong>EDUCATIONAL DEMO ONLY:</strong> This is a simulation to demonstrate what a ransom attack might look like. No real attack is occuring, and no real payment can be made. This shall not be used for any malicious purposes.
+                </div>
+                
+                <header class="email-header">
+                    <h2>Important Notice</h2>
+                    <div class="email-meta">
+                        <p><strong>From:</strong> "Security Department" &lt;attacker@darkweb.com&gt;</p>
+                        <p><strong>Subject:</strong> File Access Denied</p>
+                    </div>
+                </header>
+
+                <div class="email-body">
+                    <p>Congratulations, your file has been encrypted. To regain access, you must pay a ransom of <strong>$3,000 worth of Bitcoin</strong>.</p>
+                    <p>Contact us at: <strong>attacker@darkweb.com</strong></p>
+                    <p>Time is of the essence! Failure to pay within 72 hours will result in permanent data loss.</p>
+
+                    <div id="timer"></div>
+
+                    <form action="process_payment.php" method="POST">
+                        <label for="amount">Enter Amount in Bitcoin:</label>
+                        <input type="text" id="amount" name="amount" required>
+                        <button type="submit">Pay Now</button>
+                    </form>
+                </div>
+            </main>
+        </div>
     </body>
 </html>

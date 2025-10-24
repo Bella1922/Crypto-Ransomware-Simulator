@@ -1,18 +1,140 @@
+/* Basic Reset */
 body {
+    margin: 0;
+    padding: 0;
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     color: #333;
+    height: 100%;
 }
-header {
-    background-color: #d9534f;
-    color: white;
-    padding: 10px 0;
-    text-align: center;
+
+/* Main Content */
+.email-client-container {
+    display: grid;
+    grid-template-columns: 220px 1fr; /* Sidebar and Main Conetent */
+    height: 100vh;
 }
-main {
+
+/* Sidebar Styling */
+.sidebar {
+    background-color: #eaf1fb;
+    border-right: 1px solid #ddd;
+    padding: 15px;
+}
+
+.sidebar-header h3 {
+    margin: 0 0 20px 0;
+    color: #d9534f; /* Red accent */
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    border-radius: 5px;
+}
+
+.sidebar li.active a {
+    background-color: #d1e3fa;
+    font-weight: bold;
+}
+
+.sidebar li a:hover {
+    background-color: #dde7f5;
+}
+
+/* Main Content Area */
+.main-content {
+    background-color: #ffffff;
     padding: 20px;
+    overflow-y: auto;
+}
+
+/* Educational Disclaimer */
+.disclaimer {
+    background-color: #fffbe6;
+    border: 1px solid #ffe58f;
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.disclaimer strong {
+    color: #d9534f;
+}
+
+/* Email Header Styling */
+.email-header {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.email-header h2 {
+    margin: 0 0 10px 0;
+}
+
+.email-meta p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Email Body (Ransom Note) Styling */
+.email-body {
+    line-height: 1.6;
+}
+
+#timer {
+    font-size: 24px;
+    color: red;
+    font-weight: bold;
+    margin: 20px 0;
     text-align: center;
 }
+
 form {
     margin-top: 20px;
-} 
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+}
+
+form label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+form input[type="text"] {
+    padding: 10px;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button {
+    padding: 10px 20px;
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+form button:hover {
+    background-color: #c9302c;
+}
