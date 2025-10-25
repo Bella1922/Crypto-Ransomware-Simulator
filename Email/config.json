@@ -1,8 +1,0 @@
-{
-    "ransom_note": {
-        "ransom_amount": "$300 worth of Bitcoin",
-        "contact_email": "attacker@darkweb.com",
-        "deadline": "48 hours",
-        "threat": "Failure to pay will result in permanent data loss."
-    }
-}

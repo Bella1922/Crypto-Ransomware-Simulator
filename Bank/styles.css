@@ -37,7 +37,7 @@ header {
 }
 
 .logo-img {
-    height: 55px; /* Original 38px */
+    height: 60px; /* Original 55px */
     width: auto;
     cursor: pointer;
     transition: transform 0.3s ease;
@@ -64,7 +64,7 @@ header {
 }
 
 .nav-links a:hover {
-    background-color: rgb(255, 0, 0);
+    background-color: #c9302c;
 }
 
 /* Main Content */

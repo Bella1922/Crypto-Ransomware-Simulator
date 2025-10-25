@@ -24,7 +24,7 @@ body {
 
 .sidebar-header h3 {
     margin: 0 0 20px 0;
-    color: #d9534f; /* Red accent */
+    color: #c9302c; /* Red accent */
 }
 
 .sidebar ul {
@@ -69,7 +69,7 @@ body {
 }
 
 .disclaimer strong {
-    color: #d9534f;
+    color: #c9302c;
 }
 
 /* Email Header Styling */
@@ -86,7 +86,7 @@ body {
 .email-meta p {
     margin: 5px 0;
     font-size: 14px;
-    color: #555;
+    color: #4b4b4b;
 }
 
 /* Email Body (Ransom Note) Styling */
@@ -118,6 +118,7 @@ form label {
 }
 
 form input[type="text"] {
+    font-size: large;
     padding: 10px;
     width: 200px;
     border: 1px solid #ccc;
@@ -126,7 +127,7 @@ form input[type="text"] {
 
 form button {
     padding: 10px 20px;
-    background-color: #d9534f;
+    background-color: #d9534f; 
     color: white;
     border: none;
     border-radius: 4px;

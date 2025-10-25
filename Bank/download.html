@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en"
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/jpg" href="Images/Image.jpg">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo-container">
+                <a href="index.html">
+                    <img src="Images/Image.jpg" alt="Capital One logo" class="logo-img">
+                </a>                
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Accounts</a></li>
+                <li><a href="#">Transactions</a></li>
+                <li><a href="#">Statements</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Sign Out</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="statement-header">
+            <h2>Overview of the download and encryption process</h2>
+        </section>
+            <div class="statement-body">
+                <p>The download process in this demo starts when a victim visits a</p> 
+                <p>fake bank page and clicks a link to “download” their bank statement.</p> 
+                <p>That file is actually a malicious payload disguised as a legitimate</p>
+                <p>document; when opened it executes a downloader that fetches and launches</p> 
+                <p>the main ransomware program and then embeds itself on the system. This</p> 
+                <p>mimics the common social-engineering vector where users are tricked into</p> 
+                <p>running what they think is a harmless file.</p>
+                    <BR>
+                <p>Next, in the encryption phase, the ransomware would scan local and network</p> 
+                <p>drives for targeted file types, attempt to disable recovery tools and remove</p> 
+                <p>backups, then use a fast symmetric algorithm to encrypt files so they're</p> 
+                <p>inaccessible without the decryption key. Everything shown here is conceptual</p> 
+                <p>and safe, no real encryption occurs and your files are not harmed.</p>
+            </div>
+    </main>
+
+    <footer>
+        <p>2025 Capital One. All rights reserved.</p>
+        <ul class="footer-links">
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Security</a></li>
+        </ul>
+    </footer>
+</body>
+</html>

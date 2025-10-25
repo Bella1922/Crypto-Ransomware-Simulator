@@ -14,4 +14,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "<p>In a real attack, the attacker's server would now validate this transaction on the blockchain. If valid, they might send a decryption key. In many cases, attackers take the money and are never heard from again.</p>";
     echo "<a href='ransom_note.html'>Go Back</a>";
 }
+
+// Just put a message on this page that says what would happen if the Bitcoin was really sent out.
+// Put the same email background and header as the ransom_note.html, just a different message.
+
 ?>
