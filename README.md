@@ -13,7 +13,7 @@ engineering aspects</strong> of ransomware without any real-world damage.
 
 ## Goals
 - Educate others about how <strong>crypto ransomware</strong> operates.
-- Demonstrate the <strong>infection and encryption phases</strong> safely.
+- Demonstrate the <strong>attack and encryption phases</strong> safely.
 - Provide an interactive learning tool for <strong>workshops or class presentations.</strong>
 - Encourage responsible cybersecurity awareness and defensive thinking.
 
@@ -25,7 +25,7 @@ engineering aspects</strong> of ransomware without any real-world damage.
 ## How the Simulation Works
 1. The victim visits a <strong>fake bank webpage</strong> and downloads what appears to be a legitimate bank statement.
 2. Upon clicking the <strong>Download button</strong>, the page transitions to a blank screen explaining what would 
-happen during a real infection — downloading and encrypting files.
+happen during a real attack, downloading and encrypting files.
 3. The user then moves to a <strong>ransom note email page</strong>, where they are asked to “pay” a simulated ransom 
 (in Bitcoin).
 4. When they press <strong>Pay Now</strong>, the simulator displays another page explaining that in a real attack, the 
