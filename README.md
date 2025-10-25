@@ -1,4 +1,4 @@
-# Crypto Ransomware-Simulator
+# Crypto Ransomware Simulator
 
 ## Disclaimer
 This project is for <strong>educational</strong> and <strong>demonstration purposes only.</strong>
