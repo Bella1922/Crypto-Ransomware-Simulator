@@ -45,3 +45,25 @@ simulate these actions.
 2. Open the folder in <strong>VS Code</strong> (or your preferred editor).
 3. Right-click on index.html → <strong>Open with Live Server</strong> (or open it manually in your browser).
 4. Follow the on-screen flow to simulate the ransomware infection process.
+
+## How to install Live Server:
+1. <strong>Open Extensions Panel</strong>
+    - Open VS Code.
+    - In the Activity Bar on the left side, click on the <strong>Extensions</strong> icon.
+2. <strong>Search for Live Server</strong>
+    - In the Extensions search box, type <strong>"Live Server"</strong>.
+    - Look for the extension titled <strong>"Live Server"</strong> by <strong>Ritwick Dey</strong>.
+    - Click on <strong>Install</strong> to install the Live Server extension.
+3. <strong>Verify the Installation</strong>
+    - After the installation, you will see a <strong>"Installed"</strong> message in the Extensions panel.
+    - You can also check the Extensions sidebar, and <strong>Live Server</strong> should now be listed among your installed extensions.
+4. <strong>Launch Live Server</strong>
+    - Open the <strong>HTML file</strong> you want to preview in the browser.
+    - At the bottom-right corner of the VS Code window, you will see a <strong>Go Live</strong> button. Click on it to start the Live Server.
+    - Alternatively, you can right-click on your HTML file and select <strong>"Open with Live Server"</strong> from the context menu.
+5. <strong>Live Preview in Browser</strong>
+    - Your default web browser will open automatically with a live preview of your HTML page.
+    - As you make changes to your code in VS Code, simply save the file, and the browser will automatically refresh, reflecting the changes instantly.
+6. <strong>Stop the Live Server (Optional)</strong>
+    - To stop the Live Server, simply click on the <strong>"Port: [number]"</strong> (for example, <strong>Port: 5500</strong>) at the bottom-right corner of VS Code. This will stop the live server and close the browser window.
+    - You can also use the <strong>Stop Live Server</strong> button from the <strong>VS Code status bar</strong> if it's visible.
