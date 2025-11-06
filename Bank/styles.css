@@ -91,6 +91,21 @@ main {
     color: #0070ba;
 }
 
+/* Educational Disclaimer */
+.disclaimer {
+    background-color: #fffbe6;
+    border: 1px solid #ffe58f;
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+.disclaimer strong {
+    color: #c9302c;
+}
+
 /* Statement card */
 .statement-card {
     background: white;
@@ -135,6 +150,24 @@ main {
 
 .download-btn:hover {
     background-color: #005c99;
+    transform: translateY(-2px);
+}
+
+/* Continue to Ransom Note Button */
+.action-btn {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #c9302c;
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.action-btn:hover {
+    background-color: #b52222;
     transform: translateY(-2px);
 }
 

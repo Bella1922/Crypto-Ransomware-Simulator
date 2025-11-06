@@ -1,18 +1,32 @@
 <!doctype html>
-<html lang="en"
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/jpg" href="Images/Image.jpg">
+    <title>Download — Statement</title>
+
+    <style>
+        .demo-shell { max-width: 900px; margin: 36px auto; padding: 24px; background:#fff; border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,0.06); }
+        .stage { margin: 16px 0; }
+        .progress-track { background:#f1f5f9; height: 14px; border-radius: 10px; overflow:hidden; }
+        .progress-fill { height: 14px; width: 0%; background: linear-gradient(90deg,#0070ba,#004481); transition: width 250ms linear; }
+        .subtle { color:#666; font-size:0.95rem; }
+        .file-box { margin-top: 20px; background:#fbfdff; border:1px solid #eef3f8; border-radius:8px; padding:14px; display:flex; align-items:center; gap:12px; max-width: 420px; }
+        .file-icon { width:40px; height:40px; display:flex; align-items:center; justify-content:center; font-size:22px; background:#f3f7fb; border-radius:6px; }
+        .file-name { font-weight:600; font-size:1rem; color:#223; }
+        .file-locked { color:#b52222; font-weight:700; }
+        .hidden { display:none; }
+        .center { text-align:center; }
+    </style>
 </head>
+
 <body>
     <header>
         <nav class="navbar">
             <div class="logo-container">
-                <a href="index.html">
-                    <img src="Images/Image.jpg" alt="Capital One logo" class="logo-img">
-                </a>                
+                <a href="index.html"><img src="Images/Image.jpg" alt="Logo" class="logo-img"></a>
             </div>
             <ul class="nav-links">
                 <li><a href="#">Accounts</a></li>
@@ -23,38 +37,141 @@
             </ul>
         </nav>
     </header>
-    <main>
 
-        <section class="statement-header">
-            <h2>Overview of the download and encryption phases</h2>
+    <main class="demo-shell" role="main" aria-live="polite">
+        <section class="stage">
+            <h2>Download: BankStatement_Nov2025.pdf</h2>
+            <p class="statement-body">This page visually demonstrates the download & payload launch sequence. <strong>No real file is created or downloaded.</strong></p>
         </section>
-            <div class="statement-body">
-                <p>The download process in this demo starts when a victim visits a</p> 
-                <p>fake bank page and clicks a link to “download” their bank statement.</p> 
-                <p>That file is actually a malicious payload disguised as a legitimate</p>
-                <p>document; when opened it executes a downloader that fetches and launches</p> 
-                <p>the main ransomware program and then embeds itself on the system. This</p> 
-                <p>mimics the common social-engineering vector where users are tricked into</p> 
-                <p>running what they think is a harmless file.</p>
-                    <BR>
-                <p>Next, in the encryption process, the ransomware would scan local and network</p> 
-                <p>drives for targeted file types, attempt to disable recovery tools and remove</p> 
-                <p>backups, then use a fast symmetric algorithm to encrypt files so they're</p> 
-                <p>inaccessible without the decryption key. Everything shown here is conceptual</p> 
-                <p>and safe, no real encryption occurs and your files are not harmed.</p>
+
+        <!-- Download progress -->
+        <section id="download-stages" class="stage">
+            <div class="statement-body">Status: <span id="download-status">Connecting to server...</span></div>
+            <div style="margin-top:12px;">
+            <div class="progress-track">
+                <div id="download-progress" class="progress-fill" style="width:0%"></div>
             </div>
-            <div style="text-align:center; margin-top:40px;">
-                <a href="../Email/ransom_note.html" class="download-btn">Continue to Ransom Note</a>
+                <div class="statement-body" style="margin-top:6px;">Downloaded: <span id="download-percent">0%</span> — <span id="download-size">0 / 1.3 MB</span></div>
             </div>
+            <BR>
+            <div class="disclaimer">
+                <strong>EDUCATIONAL DEMO ONLY:</strong> This simulation is purely visual. No files are downloaded or opened, everything shown below is part of a controlled, educational demonstration.
+            </div>
+        </section>
+
+        <!-- Payload explanation -->
+        <section id="payload-stage" class="stage hidden">
+        <h3>Payload Launch (simulated)</h3>
+        <p class="statement-body">Once the fake bank statement is “opened,” a hidden script activates. Below is a visual-only sequence showing what malware might do.</p>
+        <ul class="statement-body">
+            <BR>
+            <ol style="list-style: none; padding-left: 0; margin-left: 0;">
+                <li>1. The ransomware uses strong ecryption to lock files and make them unusable.</li>
+                <li>2. It often targets file types such as documents, videos, and images.</li>
+                <li>3. It may also delete shadow volume copies and backups to hinder recovery efforts.</li>
+            </ol>
+        </ul>
+        </section>
+
+        <!-- Encryption visualization -->
+        <section id="encryption-stage" class="stage hidden">
+        <h3>Encryption (visual-only)</h3>
+        <p class="statement-body">The simulation shows how the downloaded file becomes encrypted. No actual file operations occur.</p>
+
+        <div id="file-box" class="file-box">
+            <div class="file-icon">📄</div>
+            <div>
+            <div id="file-name" class="file-name">BankStatement_Nov2025.pdf</div>
+            <div class="statement-body">type: PDF document</div>
+            </div>
+        </div>
+
+        <div style="margin-top:16px;">
+            <div class="statement-body">Progress: <span id="enc-progress-text">0%</span></div>
+            <div class="progress-track" style="margin-top:8px;">
+                <div id="enc-progress" class="progress-fill" style="width:0%; background:linear-gradient(90deg,#b52222,#7f1414);"></div>
+            </div>
+        </div>
+        </section>
+
+        <div style="text-align:center; margin-top:40px;">
+            <a href="../Email/ransom_note.html" class="action-btn">Continue to Ransom Note</a> <!--Change the wording?-->
+            <a href="../Bank/index.html" class="download-btn">Return to Home</a>
+        </div>
     </main>
 
-    <footer>
-        <p>2025 Capital One. All rights reserved.</p>
-        <ul class="footer-links">
-            <li><a href="#">Privacy</a></li>
-            <li><a href="#">Terms</a></li>
-            <li><a href="#">Security</a></li>
-        </ul>
-    </footer>
+<footer>
+    <p>2025 Capital One. All rights reserved.</p>
+    <ul class="footer-links">
+        <li><a href="#">Privacy</a></li>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">Security</a></li>
+    </ul>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const downloadStatus = document.getElementById('download-status');
+  const downloadProgress = document.getElementById('download-progress');
+  const downloadPercent = document.getElementById('download-percent');
+  const downloadSize = document.getElementById('download-size');
+  const payloadStage = document.getElementById('payload-stage');
+  const encStage = document.getElementById('encryption-stage');
+  const encProgress = document.getElementById('enc-progress');
+  const encText = document.getElementById('enc-progress-text');
+  const fileName = document.getElementById('file-name');
+  const goToEmail = document.getElementById('go-to-email');
+
+  const totalBytes = 1.3 * 1024 * 1024; // 1.3 MB visual
+  let downloaded = 0;
+
+  // Start simulated download
+  let interval = setInterval(() => {
+    downloaded += totalBytes / 60;
+    if (downloaded > totalBytes) downloaded = totalBytes;
+
+    const pct = Math.round((downloaded / totalBytes) * 100);
+    downloadProgress.style.width = pct + '%';
+    downloadPercent.textContent = pct + '%';
+    downloadSize.textContent = `${(downloaded/1024/1024).toFixed(1)} / 1.3 MB`;
+
+    if (pct < 100) {
+      downloadStatus.textContent = 'Downloading...';
+    } else {
+      clearInterval(interval);
+      downloadStatus.textContent = 'Verifying download...';
+      setTimeout(() => {
+        payloadStage.classList.remove('hidden');
+        payloadStage.scrollIntoView({behavior:'smooth'});
+        setTimeout(() => {
+          startEncryption();
+        }, 1200);
+      }, 1000);
+    }
+  }, 60);
+
+  function startEncryption() {
+    encStage.classList.remove('hidden');
+    let pct = 0;
+    const encInterval = setInterval(() => {
+      pct += 10;
+      encProgress.style.width = pct + '%';
+      encText.textContent = pct + '%';
+
+      if (pct === 100) {
+        clearInterval(encInterval);
+        // Visually mark file as locked
+        const icon = document.querySelector('.file-icon');
+        icon.textContent = '🔒';
+        fileName.textContent = 'BankStatement_Nov2025.pdf.locked';
+        fileName.classList.add('file-locked');
+        downloadStatus.textContent = 'Encryption finished (visual only).';
+        goToEmail.classList.remove('hidden');
+        goToEmail.scrollIntoView({behavior:'smooth'});
+      }
+    }, 400);
+  }
+});
+</script>
 </body>
 </html>
