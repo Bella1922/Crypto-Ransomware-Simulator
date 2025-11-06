@@ -138,4 +138,22 @@ form button {
 
 form button:hover {
     background-color: #c9302c;
-} 
+}
+
+/* Return to Start Button */
+.download-btn {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: #d9534f;
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.download-btn:hover {
+    background-color: #c9302c;
+    transform: translateY(-2px);
+}
