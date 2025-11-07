@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/jpg" href="Images/Image.jpg">
-    <title>Download — Statement</title>
 
     <style>
         .demo-shell { max-width: 900px; margin: 36px auto; padding: 24px; background:#fff; border-radius:12px; box-shadow:0 8px 24px rgba(0,0,0,0.06); }
@@ -76,7 +75,7 @@
         <!-- Encryption visualization -->
         <section id="encryption-stage" class="stage hidden">
         <h3>Encryption (visual-only)</h3>
-        <p class="statement-body">The simulation shows how the downloaded file becomes encrypted. No actual file operations occur.</p>
+        <p class="statement-body">The simulation shows how the downloaded file becomes encrypted. <strong>No actual file operations occur.</strong></p>
 
         <div id="file-box" class="file-box">
             <div class="file-icon">📄</div>
@@ -95,7 +94,7 @@
         </section>
 
         <div style="text-align:center; margin-top:40px;">
-            <a href="../Email/ransom_note.html" class="action-btn">Continue to Ransom Note</a> <!--Change the wording?-->
+            <a href="../Email/ransom_note.html" class="action-btn">Continue to Ransom Note</a>
             <a href="../Bank/index.html" class="download-btn">Return to Home</a>
         </div>
     </main>
@@ -111,66 +110,66 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  const downloadStatus = document.getElementById('download-status');
-  const downloadProgress = document.getElementById('download-progress');
-  const downloadPercent = document.getElementById('download-percent');
-  const downloadSize = document.getElementById('download-size');
-  const payloadStage = document.getElementById('payload-stage');
-  const encStage = document.getElementById('encryption-stage');
-  const encProgress = document.getElementById('enc-progress');
-  const encText = document.getElementById('enc-progress-text');
-  const fileName = document.getElementById('file-name');
-  const goToEmail = document.getElementById('go-to-email');
+    const downloadStatus = document.getElementById('download-status');
+    const downloadProgress = document.getElementById('download-progress');
+    const downloadPercent = document.getElementById('download-percent');
+    const downloadSize = document.getElementById('download-size');
+    const payloadStage = document.getElementById('payload-stage');
+    const encStage = document.getElementById('encryption-stage');
+    const encProgress = document.getElementById('enc-progress');
+    const encText = document.getElementById('enc-progress-text');
+    const fileName = document.getElementById('file-name');
+    const goToEmail = document.getElementById('go-to-email');
 
-  const totalBytes = 1.3 * 1024 * 1024; // 1.3 MB visual
-  let downloaded = 0;
+    const totalBytes = 1.3 * 1024 * 1024; // 1.3 MB visual
+    let downloaded = 0;
 
-  // Start simulated download
-  let interval = setInterval(() => {
-    downloaded += totalBytes / 60;
-    if (downloaded > totalBytes) downloaded = totalBytes;
+    // Start simulated download
+    let interval = setInterval(() => {
+        downloaded += totalBytes / 60;
+        if (downloaded > totalBytes) downloaded = totalBytes;
 
-    const pct = Math.round((downloaded / totalBytes) * 100);
-    downloadProgress.style.width = pct + '%';
-    downloadPercent.textContent = pct + '%';
-    downloadSize.textContent = `${(downloaded/1024/1024).toFixed(1)} / 1.3 MB`;
+        const pct = Math.round((downloaded / totalBytes) * 100);
+        downloadProgress.style.width = pct + '%';
+        downloadPercent.textContent = pct + '%';
+        downloadSize.textContent = `${(downloaded/1024/1024).toFixed(1)} / 1.3 MB`;
 
-    if (pct < 100) {
-      downloadStatus.textContent = 'Downloading...';
-    } else {
-      clearInterval(interval);
-      downloadStatus.textContent = 'Verifying download...';
-      setTimeout(() => {
-        payloadStage.classList.remove('hidden');
-        payloadStage.scrollIntoView({behavior:'smooth'});
-        setTimeout(() => {
-          startEncryption();
-        }, 1200);
-      }, 1000);
+        if (pct < 100) {
+            downloadStatus.textContent = 'Downloading...';
+        } else {
+            clearInterval(interval);
+            downloadStatus.textContent = 'Verifying download...';
+            setTimeout(() => {
+                payloadStage.classList.remove('hidden');
+                payloadStage.scrollIntoView({behavior:'smooth'});
+                setTimeout(() => {
+                startEncryption();
+                }, 1200);
+            }, 1000);
+        }
+    }, 60);
+
+    function startEncryption() {
+        encStage.classList.remove('hidden');
+        let pct = 0;
+        const encInterval = setInterval(() => {
+            pct += 10;
+            encProgress.style.width = pct + '%';
+            encText.textContent = pct + '%';
+
+            if (pct === 100) {
+            clearInterval(encInterval);
+            // Visually mark file as locked
+            const icon = document.querySelector('.file-icon');
+            icon.textContent = '🔒';
+            fileName.textContent = 'BankStatement_Nov2025.pdf.locked';
+            fileName.classList.add('file-locked');
+            downloadStatus.textContent = 'Encryption finished (visual only).';
+            goToEmail.classList.remove('hidden');
+            goToEmail.scrollIntoView({behavior:'smooth'});
+            }
+        }, 400);
     }
-  }, 60);
-
-  function startEncryption() {
-    encStage.classList.remove('hidden');
-    let pct = 0;
-    const encInterval = setInterval(() => {
-      pct += 10;
-      encProgress.style.width = pct + '%';
-      encText.textContent = pct + '%';
-
-      if (pct === 100) {
-        clearInterval(encInterval);
-        // Visually mark file as locked
-        const icon = document.querySelector('.file-icon');
-        icon.textContent = '🔒';
-        fileName.textContent = 'BankStatement_Nov2025.pdf.locked';
-        fileName.classList.add('file-locked');
-        downloadStatus.textContent = 'Encryption finished (visual only).';
-        goToEmail.classList.remove('hidden');
-        goToEmail.scrollIntoView({behavior:'smooth'});
-      }
-    }, 400);
-  }
 });
 </script>
 </body>
