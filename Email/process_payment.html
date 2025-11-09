@@ -1,40 +1,160 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="payment.css">
-        <title>Payment Required!</title>   
-    </head>
-    <body>
-        <div class="email-client-container">
-            <nav class="sidebar">
-                <div class="sidebar-header">
-                    <h3>My Mail</h3>
-                </div>
-                <ul>
-                    <li class="active"><a>Inbox (1)</a></li>
-                    <li><a>Sent</a></li>
-                    <li><a>Drafts</a></li>
-                    <li><a>Spam</a></li>
-                    <li><a>Trash</a></li>
-                </ul>
-            </nav>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Payment Processing</title>
+    <link rel="stylesheet" href="payment.css">
 
-            <main class="main-content">
-                <div class="disclaimer">
-                    <strong>EDUCATIONAL DEMO ONLY:</strong> This is a simulation to demonstrate what a ransom attack might look like. No real attack is occuring, and no real payment can be made. This shall not be used for any malicious purposes.
-                </div>
+    <style>
+        .center { text-align:center; }
+        .processing-card {
+        background:#fff; border-radius:8px; padding:22px;
+        box-shadow:0 6px 20px rgba(0,0,0,0.06);
+        max-width:820px; margin:auto;
+        }
+        .status-line { font-weight:700; color:#000; margin-bottom:6px; }
+        .subtle { color:#333; }
 
-                <header class="email-header">
-                    <h2>Overview of the payment and confirmation phases</h2>
-                </header>
+        .processing-spinner {
+        width:48px; height:48px; border-radius:50%;
+        border:6px solid rgba(0,0,0,0.06);
+        border-top-color:#d9534f;
+        margin:auto;
+        animation:spin 1s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
 
-                
-                <div style="text-align:center; margin-top:40px;">
-                    <a href="../Bank/index.html" class="download-btn">Return to Start</a>
-                </div>
-            </main>
+        .result-accepted {
+        border-left:6px solid #2f7a3e;
+        background:#f2fff2;
+        padding:12px;
+        border-radius:6px;
+        }
+
+        .small-meta { font-size:0.95rem; color:#555; margin-top:6px; }
+        .hidden { display:none; }
+    </style>
+</head>
+<body>
+
+    <div class="email-client-container">
+        <nav class="sidebar">
+        <div class="sidebar-header">
+            <h3>My Mail</h3>
         </div>
-    </body>
+        <ul>
+            <li class="active"><a>Inbox (1)</a></li>
+            <li><a>Sent</a></li>
+            <li><a>Drafts</a></li>
+            <li><a>Spam</a></li>
+            <li><a>Trash</a></li>
+        </ul>
+        </nav>
+
+        <main class="main-content">
+        <div class="disclaimer">
+            <strong>EDUCATIONAL DEMO ONLY:</strong>
+            This is a simulated payment process. No real funds will be sent and no real decryption will occur.
+        </div>
+
+        <header class="email-header">
+            <h2>Payment Processing</h2>
+        </header>
+
+        <div class="processing-card" role="region" aria-live="polite">
+            <div class="status-line" id="status-line">Preparing payment...</div>
+            <div class="subtle" id="subtle-line">
+            We are preparing to process your simulated payment. Please wait — this is a demonstration only.
+            </div>
+
+            <div style="margin:18px 0;" id="processing-area">
+            <div class="center">
+                <div class="processing-spinner" id="spinner" aria-hidden="true"></div>
+                <div class="small-meta" id="processing-meta">Contacting payment gateway...</div>
+            </div>
+            </div>
+
+            <div id="outcome" class="hidden" aria-hidden="true"></div>
+
+            <div style="margin-top:16px;" class="center" id="action-buttons">
+            <a href="../Bank/index.html" class="download-btn" id="return-home">Return to Start</a>
+            </div>
+        </div>
+        </main>
+    </div>
+
+    <script>
+    (function(){
+    const statusLine = document.getElementById('status-line');
+    const subtleLine = document.getElementById('subtle-line');
+    const processingMeta = document.getElementById('processing-meta');
+    const processingArea = document.getElementById('processing-area');
+    const spinner = document.getElementById('spinner');
+    const outcomeEl = document.getElementById('outcome');
+
+    function readAmount() {
+        const params = new URLSearchParams(window.location.search);
+        let amt = params.get('amount') || params.get('amt') || '';
+        if (!amt) return '$3000';
+        if (amt.startsWith('$')) return amt;
+        if (!isNaN(Number(amt))) return '$' + Number(amt).toLocaleString();
+        return amt;
+    }
+
+    const amount = readAmount();
+    subtleLine.innerHTML = `Processing simulated payment of ${amount}.<br><br>This is a demonstration only. No funds will be transferred.<br><br>`;
+
+    const steps = [
+        { text: 'Contacting payment gateway...', delay: 900 },
+        { text: 'Authorizing transaction...', delay: 1200 },
+        { text: 'Submitting to blockchain (simulated)...', delay: 1400 },
+        { text: 'Finalizing...', delay: 900 }
+    ];
+
+    let stepIndex = 0;
+
+    function runSteps() {
+        if (stepIndex >= steps.length) {
+        runOutcome('accept');
+        return;
+        }
+        processingMeta.textContent = steps[stepIndex].text;
+        setTimeout(() => {
+        stepIndex++;
+        runSteps();
+        }, steps[stepIndex].delay);
+    }
+
+    function runOutcome(outcome) {
+        // Hide spinner entirely once complete
+        spinner.classList.add('hidden');
+        processingMeta.textContent = 'Completed.';
+        processingArea.classList.add('hidden');
+
+        outcomeEl.classList.remove('hidden');
+        outcomeEl.setAttribute('aria-hidden', 'false');
+        outcomeEl.innerHTML = '';
+
+        if (outcome === 'accept') {
+        statusLine.textContent = 'Payment accepted (simulated)';
+        const box = document.createElement('div');
+        box.className = 'result-accepted';
+        box.innerHTML = `
+            <h3>Simulated result: Payment accepted</h3>
+            <p>The attacker claims to have received the funds and provides a decryption key.</p>
+            <p><strong>Teaching note:</strong> Even when attackers provide a key, it may be incomplete, corrupted, or intentionally unusable.</p>
+            <p style="margin-top:8px;"><strong>Simulated decryption key:</strong> <code>SIM-DEC-KEY-2025-XYZ123</code></p>
+        `;
+        outcomeEl.appendChild(box);
+        }
+    }
+
+    setTimeout(() => {
+        statusLine.textContent = 'Processing simulated payment...';
+        runSteps();
+    }, 700);
+    })();
+    </script>
+</body>
 </html>
